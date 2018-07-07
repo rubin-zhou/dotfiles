@@ -71,3 +71,22 @@ map <F7> :make<CR>
 map <S-F7> :make clean all<CR>
 " goto definition with F12
 map <F12> <C-]>
+
+" no indent for namespace
+function! IndentNamespace()
+  let l:cline_num = line('.')
+  let l:pline_num = prevnonblank(l:cline_num - 1)
+  let l:pline = getline(l:pline_num)
+  let l:retv = cindent('.')
+  while l:pline =~# '\(^\s*{\s*\|^\s*//\|^\s*/\*\|\*/\s*$\)'
+    let l:pline_num = prevnonblank(l:pline_num - 1)
+    let l:pline = getline(l:pline_num)
+  endwhile
+  if l:pline =~# '^\s*namespace.*'
+    let l:retv = 0
+  endif
+  return l:retv
+endfunction
+
+setlocal indentexpr=IndentNamespace()
+

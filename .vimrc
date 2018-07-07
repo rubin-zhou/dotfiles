@@ -62,15 +62,9 @@ set showmatch
 
 " Enhanced keyboard mappings
 "
-" in normal mode F2 will save the file
-nmap <F2> :w<CR>
-" in insert mode F2 will exit insert, save, enters insert again
-imap <F2> <ESC>:w<CR>i
 map <F7> :make<CR>
-" build using makeprg with <S-F7>
-map <S-F7> :make clean all<CR>
-" goto definition with F12
-map <F12> <C-]>
+" F2 to show/hide NERDTree
+nmap <F2> :NERDTreeToggle<CR>
 
 " no indent for namespace
 function! IndentNamespace()
@@ -89,4 +83,3 @@ function! IndentNamespace()
 endfunction
 
 setlocal indentexpr=IndentNamespace()
-

@@ -17,3 +17,8 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 source ~/.bashrc
 vim +PluginInstall +qall
+
+# compile YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
+./install.py --clang-completer
+source ~/.bashrc

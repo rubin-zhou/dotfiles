@@ -10,13 +10,11 @@ Plugin 'VundleVim/Vundle.vim'
 " file system explorer
 Plugin 'scrooloose/nerdtree'
 Plugin 'majutsushi/tagbar'
-
-" tab completion with anything defined in the text before
-Plugin 'Valloric/YouCompleteMe'
-
 Plugin 'vim-utils/vim-cscope'
 "color schemes
 Plugin 'flazz/vim-colorschemes'
+" tab completion with anything defined in the text before
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()            " required
 
 filetype plugin indent on    " required, re-enable filetype auto-detection

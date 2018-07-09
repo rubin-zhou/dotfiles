@@ -21,3 +21,9 @@ mkdir -p ~/.vim/bundle
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 source ~/.bashrc
 vim +PluginInstall +qall # If this get stuck during plugin install, run this in terminal
+
+# compile YouCompleteMe
+cd ~/.vim/bundle/YouCompleteMe
+# ./install.py --clang-completer
+sudo bash ~/.vim/bundle/YouCompleteMe/install.sh
+source ~/.bashrc

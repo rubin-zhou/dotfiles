@@ -60,12 +60,41 @@ set showmatch
 
 " Enhanced keyboard mappings
 "
-" in normal mode F2 will save the file
-nmap <F2> :w<CR>
-" in insert mode F2 will exit insert, save, enters insert again
-imap <F2> <ESC>:w<CR>i
 map <F7> :make<CR>
-" build using makeprg with <S-F7>
-map <S-F7> :make clean all<CR>
-" goto definition with F12
-map <F12> <C-]>
+" F2 to show/hide NERDTree
+nmap <F2> :NERDTreeToggle<CR>
+
+" no indent for namespace
+function! IndentNamespace()
+  let l:cline_num = line('.')
+  let l:pline_num = prevnonblank(l:cline_num - 1)
+  let l:pline = getline(l:pline_num)
+  let l:retv = cindent('.')
+  while l:pline =~# '\(^\s*{\s*\|^\s*//\|^\s*/\*\|\*/\s*$\)'
+    let l:pline_num = prevnonblank(l:pline_num - 1)
+    let l:pline = getline(l:pline_num)
+  endwhile
+  if l:pline =~# '^\s*namespace.*'
+    let l:retv = 0
+  endif
+  return l:retv
+endfunction
+
+setlocal indentexpr=IndentNamespace()
+
+" cscope settings
+if has('cscope')
+  set cscopetag cscopeverbose
+
+  if has('quickfix')
+    set cscopequickfix=s-,c-,d-,i-,t-,e-
+  endif
+
+  cnoreabbrev csa cs add
+  cnoreabbrev csf cs find
+  cnoreabbrev csk cs kill
+  cnoreabbrev csr cs reset
+  cnoreabbrev css cs show
+  cnoreabbrev csh cs help
+  "command -nargs=0 Cscope cs add $VIMSRC/src/cscope.out $VIMSRC/src
+endif

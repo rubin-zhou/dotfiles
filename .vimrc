@@ -46,10 +46,9 @@ set tabstop=4        " tab width is 4 spaces
 set shiftwidth=4     " indent also with 4 spaces
 set expandtab        " expand tabs to spaces
 set textwidth=100   "wrap lines at 100 chars.
-set colorcolumn=100 "display color when exceed 100
+"display color when exceed 100
 let &colorcolumn=join(range(100,999),",")
 highlight ColorColumn ctermbg=235 guibg=#2c2d27
-
 
 " turn syntax highlighting on
 syntax on

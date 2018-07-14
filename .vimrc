@@ -15,6 +15,8 @@ Plugin 'vim-utils/vim-cscope'
 Plugin 'flazz/vim-colorschemes'
 " tab completion with anything defined in the text before
 Plugin 'Valloric/YouCompleteMe'
+" bracket, marker auto complete and match
+Plugin 'Raimondi/delimitMate'
 call vundle#end()            " required
 
 filetype plugin indent on    " required, re-enable filetype auto-detection
@@ -29,6 +31,10 @@ filetype plugin indent on    " required, re-enable filetype auto-detection
 "
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
+
+
+" plugin delimitMate extra setting
+let g:delimitMate_expand_cr=1
 
 
 " set UTF-8 encoding

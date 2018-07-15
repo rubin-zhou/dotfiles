@@ -13,6 +13,9 @@ cd ..
 ./configure --enable-pythoninterp --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu
 cd src && make -j8 && sudo make install
 cd ../../
+# To enable 'clipboard', install vim-gnone
+sudo apt-get install vim-gnome
+
 
 
 # copy vimrc and install vundle plugins
